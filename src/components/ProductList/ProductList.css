@@ -1,0 +1,17 @@
+.list-view {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-gap: 2rem;
+  margin-bottom: 2rem;
+  place-items: center;
+  justify-content: center;
+  background: #e3e8ed;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+}
+
+@media only screen and (max-width: 768px) {
+  .list-view {
+    padding-top: 5rem;
+  }
+}

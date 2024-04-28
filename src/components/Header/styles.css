@@ -1,0 +1,175 @@
+/* styles for header */
+:root {
+  --Bg: #000;
+  --text: #000000;
+}
+header {
+  align-items: center;
+  background:transparent;
+  display: flex;
+  padding: 0.8rem;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: none !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #68707a;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #68707a;
+}
+/* styles for navigation links */
+
+nav {
+  align-items: center;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav .navtop {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: fit-content;
+}
+
+.desktop-nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav li {
+  padding: 1rem;
+}
+
+.desktop-nav a {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.5s all ease-in-out;
+  position: relative;
+}
+
+a::before {
+  content: "";
+  background-color: #c4c1e0;
+  position: absolute;
+  left: 0;
+  bottom: -0.3rem;
+  height: 2px;
+  width: 0;
+  transition: 0.3s ease-in-out;
+}
+a:hover::before {
+  content: "";
+  background-color: #c4c1e0;
+  position: absolute;
+  left: 0;
+  bottom: -0.3rem;
+  height: 2px;
+  width: 90%;
+}
+
+nav .project-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--text);
+}
+
+nav .project-title:hover {
+  text-decoration: none;
+}
+
+/* styles for mobile menu icon */
+.mobile-menu-icon {
+  cursor: pointer;
+  display: none;
+}
+
+.mobile-menu-icon div {
+  background: var(--text);
+  border-radius: 0.5rem;
+  height: 3px;
+  transition: transform 0.3s ease;
+  width: 2rem;
+}
+
+.active .firstbar:nth-child(1) {
+  transform: rotate(45deg) translateX(1px) translateY(2px);
+}
+
+.active .secondbar:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+/* Media Query for small screens */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0.5rem;
+  }
+
+  nav {
+    box-sizing: border-box;
+    flex-direction: column;
+  }
+
+  nav .navtop {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    background-color: var(--Bg);
+    padding: 0 0.5rem;
+  }
+
+  nav a {
+    padding: 0.5rem 0;
+  }
+
+  .mobile-menu-icon {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.4rem;
+  }
+
+  .active {
+    row-gap: 0;
+  }
+
+  .desktop-nav {
+    position: fixed;
+    top: 7%;
+    right: -100%; /* Initially off-screen */
+    width: 50%; /* Adjust the width as needed */
+    height: 100%;
+    background-color: #000000;
+    transition: right 0.3s ease; /* Transition the right property */
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    padding: 20% 5%;
+  }
+
+  .desktop-nav.show {
+    right: 0; /* Slide in from the right */
+  }
+  .desktop-nav a {
+    display: block;
+    text-decoration: none;
+
+    margin-bottom: 20%; /* Add margin between the links */
+  }
+}
